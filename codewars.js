@@ -31,7 +31,7 @@ function isIsogram(str) {
                     return false;
                 }
             }
-            
+
         }
         return true;
     }
@@ -44,4 +44,25 @@ function isIsogram(str) {
 // console.log(isIsogram("isIsogram"), false);
 // console.log(isIsogram(""), true, "an empty string is a valid isogram");
 
+function makeItWork(num) {
+    let newArr = num.toString().split('');
+    let sum = 0;
+    for (let i = 0; i < newArr.length; i++) {
+        sum = sum + parseInt(newArr[i]);
+    }
+    newArr = sum;
+    console.log(newArr);
+    
+    return newArr;
+}
 
+function digital_root(n) {
+    if (n > 9) {
+        let newNum = makeItWork(n);
+        return digital_root(newNum)
+    } else {
+        return n;
+    }
+}
+
+console.log(trySum(156));
