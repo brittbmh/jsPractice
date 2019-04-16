@@ -67,12 +67,16 @@ function digital_root(n) {
 
 // console.log(trySum(156));
 
+
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+
+// If the function is passed a valid PIN string, return true, else return false.
 function validatePIN(pin) {
     //return true or false
     let numMatch = /^[0-9]*$/gm;
     let status = pin.match(numMatch);
     if (status) {
-        let count = pin.toString().length;
+        let count = pin.length;
         if (count === 4 || count === 6) {
             return true;
         } else {
@@ -84,4 +88,6 @@ function validatePIN(pin) {
 
 console.log(validatePIN("123"));
 console.log(validatePIN("09876"));
+
+
 
