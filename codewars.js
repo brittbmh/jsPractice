@@ -52,7 +52,7 @@ function makeItWork(num) {
     }
     newArr = sum;
     console.log(newArr);
-    
+
     return newArr;
 }
 
@@ -65,4 +65,23 @@ function digital_root(n) {
     }
 }
 
-console.log(trySum(156));
+// console.log(trySum(156));
+
+function validatePIN(pin) {
+    //return true or false
+    let numMatch = /^[0-9]*$/gm;
+    let status = pin.match(numMatch);
+    if (status) {
+        let count = pin.toString().length;
+        if (count === 4 || count === 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    return false;
+}
+
+console.log(validatePIN("123"));
+console.log(validatePIN("09876"));
+
