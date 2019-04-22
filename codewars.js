@@ -71,23 +71,41 @@ function digital_root(n) {
 // ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
 
 // If the function is passed a valid PIN string, return true, else return false.
-function validatePIN(pin) {
-    //return true or false
-    let numMatch = /^[0-9]*$/gm;
-    let status = pin.match(numMatch);
-    if (status) {
-        let count = pin.length;
-        if (count === 4 || count === 6) {
-            return true;
-        } else {
-            return false;
+// function validatePIN(pin) {
+//     //return true or false
+//     let numMatch = /^[0-9]*$/gm;
+//     let status = pin.match(numMatch);
+//     if (status) {
+//         let count = pin.length;
+//         if (count === 4 || count === 6) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
+//     return false;
+// }
+
+// console.log(validatePIN("123"));
+// console.log(validatePIN("09876"));
+
+
+function deleteNth(arr, n) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        // let regex = new RegExp(arr[i], 'gi');
+        // console.log(regex);
+        let countArr = newArr.filter(number => {
+            return number === arr[i];
+        })
+        console.log(`arr[i] is ${arr[i]}, countArr is ${countArr}`);
+        if (countArr.length < n) {
+            newArr.push(arr[i]);
         }
     }
-    return false;
+    return newArr;
 }
 
-console.log(validatePIN("123"));
-console.log(validatePIN("09876"));
-
-
+// console.log(deleteNth([1, 2, 3, 4, 1, 2, 3], 1));
+console.log(deleteNth([47, 20, 31, 20, 31, 20, 31, 2, 2, 38, 20, 2, 20, 31, 31, 20, 31, 20, 20, 2, 2, 2], 5));
 
