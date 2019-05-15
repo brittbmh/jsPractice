@@ -107,5 +107,34 @@ function deleteNth(arr, n) {
 }
 
 // console.log(deleteNth([1, 2, 3, 4, 1, 2, 3], 1));
-console.log(deleteNth([47, 20, 31, 20, 31, 20, 31, 2, 2, 38, 20, 2, 20, 31, 31, 20, 31, 20, 20, 2, 2, 2], 5));
+// console.log(deleteNth([47, 20, 31, 20, 31, 20, 31, 2, 2, 38, 20, 2, 20, 31, 31, 20, 31, 20, 20, 2, 2, 2], 5));
 
+// You are going to be given an array of integers.Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N.If there is no index that would make this happen, return -1.
+
+function findEvenIndex(arr) {
+
+    for (let i = 0; i < arr.length; i++) {
+        let arr1 = arr.slice(0, arr[i]);
+        console.log(arr1);
+        let sum1 = 0;
+        for (let j = 0; j < arr1.length; j++) {
+            sum1 += arr1[j];
+            // console.log(sum1);
+            let arr2 = arr.slice(arr[i]);
+            console.log(arr2);
+            let sum2 = 0;
+            for (let k = 0; k < arr1.length; k++) {
+                sum2 += arr2[k];
+            }
+            // console.log(sum2);
+            if (sum1 === sum2) {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+
+console.log(findEvenIndex([1, 2, 1]));
+// console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+// console.log(findEvenIndex([50,-51,1,1]));
